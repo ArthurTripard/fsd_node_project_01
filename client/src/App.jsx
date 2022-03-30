@@ -7,6 +7,7 @@ import NavBar from "./conponents/NavBar";
 import Home from "./conponents/Home";
 import Login from "./conponents/Login";
 import Register from "./conponents/Register";
+import Article from "./conponents/Article";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,7 @@ function App() {
       <NavBar user={user} />
       <Routes>
         <Route path="/" element={user ? <Home /> : <Register />} />
+        <Route path="/articles/:id" element={<Article />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
       </Routes>

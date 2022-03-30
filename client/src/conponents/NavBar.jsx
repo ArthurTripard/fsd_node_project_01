@@ -11,13 +11,17 @@ const pages = ["", "", ""];
 const NavBar = ({ user }) => {
   const navigate = useNavigate();
 
-  console.log(user);
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: "flex" }}>
+          <Typography
+            onClick={() => navigate("/")}
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: "flex" }}
+          >
             LOGO
           </Typography>
 
