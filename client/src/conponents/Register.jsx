@@ -22,8 +22,10 @@ export default function Register() {
     }
 
     try {
-      const data = { username: username, email, password };
+      const data = { username, email, password };
       const responce = await axios.post("http://localhost:3001/auth/register", data);
+
+      console.log(responce);
 
       if (responce.status === 200) {
         navigate("/login");

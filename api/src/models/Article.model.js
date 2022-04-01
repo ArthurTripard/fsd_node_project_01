@@ -7,7 +7,7 @@ const schema = new Schema({
   resume: { type: String, required: true },
   body: { type: String, required: true },
   publiched: { type: Date, default: Date.now },
-  modified: { type: Date },
+  modified: { type: Date, default: null },
 });
 
 const Article = model("Article", schema);

@@ -6,10 +6,15 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
-const pages = ["", "", ""];
+const adminPages = [
+  { name: "view users", to: "/users" },
+  { name: "new article", to: "/articles/new" },
+];
 
 const NavBar = ({ user }) => {
   const navigate = useNavigate();
+
+  console.log(user);
 
   return (
     <AppBar position="static">
@@ -25,13 +30,15 @@ const NavBar = ({ user }) => {
             LOGO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: "flex" }}>
-            {pages.map((page, index) => (
-              <Button key={page + index} sx={{ my: 2, color: "white", display: "block" }}>
-                {page}
-              </Button>
-            ))}
-          </Box>
+          {user?.isAdmin && (
+            <Box sx={{ flexGrow: 1, display: "flex" }}>
+              {adminPages.map(({ name, to }) => (
+                <Button onClick={() => navigate(to)} key={name} sx={{ my: 2, color: "white", display: "block" }}>
+                  {name}
+                </Button>
+              ))}
+            </Box>
+          )}
 
           {user && (
             <Box>
